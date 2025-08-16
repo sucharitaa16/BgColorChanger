@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bg color changer</title>
+</head>
+<body>
+  <h1 style="background-color: aquamarine ;color: black;">hey it is a color changer page</h1>
+  
+  <button id="start" style="height: 40px; width: 80px; border-radius: 8px; font-size: medium;">start</button>
+
+  <button id="stop"style="height: 40px; width: 80px; border-radius: 8px; font-size: medium; ">stop</button>
+
+  <script>
+
+    var randomClr= function(){
+     const hex="0123456789ABCDEF"
+     let color="#"
+     for(let i=0;i<=5;i++){
+      color +=hex[Math.floor(Math.random()*16)]
+      
+     }
+     return color
+    
+
+    }
+
+    let changeBgClr=function(){
+      document.body.style.backgroundColor= randomClr();
+    }
+
+    let intervalId; 
+
+    const startBtn=document.querySelector('#start')
+    intervalId=startBtn.addEventListener("click" ,function(e){
+     intervalId= setInterval(changeBgClr,2000)
+    
+    })
+
+
+    const stopBtn=document.querySelector('#stop')
+    stopBtn.addEventListener("click",function(e){
+      console.log("clicked")
+      clearInterval(intervalId)
+    })
+  
+
+
+  </script>
+</body>
+</html>
